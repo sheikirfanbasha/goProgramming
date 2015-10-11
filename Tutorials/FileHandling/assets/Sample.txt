@@ -1,0 +1,39 @@
+
+Bifrost.Application.Rootcomponentname = (function () {
+    var I = Bifrost.Immutable;
+
+    function StoreExtending(ReduceStore) {
+
+        function MyStore(dispatcher) {
+            return ReduceStore.call(this, dispatcher);
+        }
+
+        MyStore.prototype = Object.create(ReduceStore.prototype);
+
+        MyStore.prototype.getInitialModel = function getInitialModel() {
+            return {};
+        };
+
+        MyStore.prototype.updateModel = function updateModel(model, action) {
+            // Update the model and return a new value.
+            return model;
+        };
+
+        MyStore.prototype.updateViewState = function updateViewState(model, viewState, action) {
+            // Update the view state and return a new view state.
+            return viewState;
+        };
+
+        return MyStore;
+    }
+
+     function compareArrays(a, b){
+        return JSON.stringify(a)==JSON.stringify(b);
+    }
+
+
+    return {
+        StoreExtending: StoreExtending
+    };
+}());
+
