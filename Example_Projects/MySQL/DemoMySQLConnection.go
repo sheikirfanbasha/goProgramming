@@ -1,6 +1,7 @@
 /* 
+Using MySQL Driver from
+	https://github.com/ziutek/mymysql
 Step1:
-
 	Install 
 	$ go get github.com/ziutek/mymysql/thrsafe
 	$ go get github.com/ziutek/mymysql/autorc
