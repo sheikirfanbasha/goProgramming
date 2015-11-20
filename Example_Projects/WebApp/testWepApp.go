@@ -18,10 +18,15 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+    fmt.Fprintf(w, "<h1>%s %s!</h1>","Hi there, I love", r.URL.Path[1:])
+}
+
+func loginHandler(w http.ResponseWriter, r *http.Request){
+	fmt.Fprintf(w, "<h1>You are in login Page</h1>");
 }
 
 func main() {
     http.HandleFunc("/", handler)
+     http.HandleFunc("/login", loginHandler)
     http.ListenAndServe(":7272", nil)
 }
