@@ -39,7 +39,7 @@ func main() {
 	// url = "ldaps://some.host:636/"
 	user = "uid=admin,ou=system"
 	passwd = "secret"
-	base = "ou=people,o=sevenSeas"
+	base = "ou=developers,o=quantezza"
 
 	ldap, err := openldap.Initialize(url)
 
@@ -63,7 +63,7 @@ func main() {
 	// (3) : search method
 	// -------------------------------------- Ldap::SearchAll() --------------------------------------
 	scope := openldap.LDAP_SCOPE_SUBTREE // LDAP_SCOPE_BASE, LDAP_SCOPE_ONELEVEL, LDAP_SCOPE_SUBTREE  
-	filter := "cn=*Wi*"//"cn=*admin*"
+	filter := "cn=*ir*"//"cn=*admin*"
 	attributes := []string{"cn", "sn", "givenname", "mail"} // leave empty for all attributes
 
 	// SearchAll(base string, scope int, filter string, attributes []string) (*LdapSearchResult, error)
@@ -95,14 +95,14 @@ func main() {
    m["objectclass"] = []string{
 								"person", "inetOrgPerson", "organizationalPerson", "top",
 							}
-	m["cn"] = []string{"irfan"}
-	m["givenname"] = []string{"irfan basha"}
-	m["sn"] = []string{"sheik"}
-	m["mail"] = []string{"sheik@gamil.com"}
+	m["cn"] = []string{"cool"}
+	m["givenname"] = []string{"cool basha"}
+	m["sn"] = []string{"coole"}
+	m["mail"] = []string{"coolsheik@gamil.com"}
 	m["userPassword"] = []string{"Changepwd1"}
-	m["uid"] = []string{"irfans"}
+	m["uid"] = []string{"cools"}
 		
- 	t := ldap.Add("cn=irfan,ou=people,o=sevenSeas", m)
+ 	t := ldap.Add("cn=cool,ou=developers,o=quantezza", m)
  	if err != nil {
 		fmt.Println(err)
 		return
